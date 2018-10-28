@@ -1,5 +1,7 @@
 ### My Battery Max is simple program that tells you when you should unplug or plug your laptop charger :octocat:
+this program need acpi to working properly
 to use
+* install acpi "sudo apt install acpi"
 * clone this repo
 * goto GUI directory
 * make
