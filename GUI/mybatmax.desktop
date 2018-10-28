@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=MyBattMax
-Comment=my battery settings
-Exec=sh -c 'cd /home/catzy/Ngoprek/batterymax/GUI && ./mybatmax'
-NotShowIn=GNOME;KDE;XFCE;
