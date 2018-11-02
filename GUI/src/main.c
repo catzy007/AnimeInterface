@@ -8,6 +8,7 @@ MyWindow window1 = {.MyWidth=720, .MyHeight=480, .MySignal=0, .IsAnimation=1};
 
 #define MyMin 40 //change this to set minimum battery percentage
 #define MyMax 90 //change this to set maximum battery percentage
+#define MyOff 20 //change this to set shutdown battery percentage
 
 //some widget
 GtkWidget *popup;
@@ -93,7 +94,9 @@ static gboolean imgOPHide(){
 static gboolean MyFunction (gpointer user_data){
 	
 	if(window1.MySignal==0){
-		if(MyBatState() && MyBatPrecMax(MyMax)){
+		if(MyBatState()==0 && MyBatPercVal()<MyOff){
+			system("poweroff");
+		}else if(MyBatState() && MyBatPrecMax(MyMax)){
 			gtk_label_set_markup (GTK_LABEL (g_TextMsg), 
 			"<span size=\"22000\">Subject:\n</span><span size=\"22000\" weight=\"bold\">Unplug\nCharger\nNow!</span>");
 			gtk_widget_show_all(popup);
@@ -113,7 +116,9 @@ static gboolean MyFunction (gpointer user_data){
 			//printf("Discharging\n");
 		}
 	}else{
-		if(MyBatState() && MyBatPrecMax(MyMax)){
+		if(MyBatState()==0 && MyBatPercVal()<MyOff){
+			system("poweroff");
+		}else if(MyBatState() && MyBatPrecMax(MyMax)){
 			//printf("Unplug Charger Now!\n");
 		}else if(MyBatState()==0 && MyBatPrecMin(MyMin)){
 			//printf("Plug Charger Now!\n");

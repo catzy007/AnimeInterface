@@ -4,14 +4,15 @@
 #include <stdlib.h>
 
 typedef struct{
-	gint MyWidth;
-	gint MyHeight;
-	gint MySignal;
-	gint IsAnimation;
+	int MyWidth;
+	int MyHeight;
+	int MySignal;
+	int IsAnimation;
 }MyWindow;
 
+int MyBatPercVal(void);
 int MyBatPrecMax(int max);
 int MyBatPrecMin(int min);
-int MyBatState();
+int MyBatState(void);
 
 #endif
