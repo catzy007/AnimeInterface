@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define boolean unsigned int
+#define true 1
+#define false 0
+
 typedef struct{
 	int MyWidth;
 	int MyHeight;

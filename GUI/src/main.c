@@ -6,9 +6,9 @@
 //if your bgimage is gif, change IsAnimation to 1. default is 0
 MyWindow window1 = {.MyWidth=720, .MyHeight=480, .MySignal=0, .IsAnimation=1};
 
-#define MyMin 40 //change this to set minimum battery percentage
-#define MyMax 90 //change this to set maximum battery percentage
-#define MyOff 20 //change this to set shutdown battery percentage
+#define MyMin 40 //change this to set minimum battery percentage. default = 40
+#define MyMax 90 //change this to set maximum battery percentage. default = 90
+#define MyOff 30 //change this to set shutdown battery percentage. default = 20
 
 //some widget
 GtkWidget *popup;
@@ -81,7 +81,7 @@ int main(int argc, char *argv[]){
 //Hide main window if called
 void myhide(){
 	gtk_widget_hide(popup);
-	window1.MySignal=0;
+	window1.MySignal=false;
 }
 
 static gboolean imgOPHide(){
@@ -93,39 +93,46 @@ static gboolean imgOPHide(){
 //MyFancy function
 static gboolean MyFunction (gpointer user_data){
 	
-	if(window1.MySignal==0){
-		if(MyBatState()==0 && MyBatPercVal()<MyOff){
+	if(window1.MySignal==false){ //if no animation shown
+		if(MyBatState()==false && MyBatPercVal()<MyOff){ 
+		//if battery is discharged and battery under shutdown percentage
 			system("poweroff");
-		}else if(MyBatState() && MyBatPrecMax(MyMax)){
+		}else if(MyBatState() && MyBatPrecMax(MyMax)){ 
+		//if battery is charged and battery over maximum percentage
 			gtk_label_set_markup (GTK_LABEL (g_TextMsg), 
 			"<span size=\"22000\">Subject:\n</span><span size=\"22000\" weight=\"bold\">Unplug\nCharger\nNow!</span>");
 			gtk_widget_show_all(popup);
 			gtk_widget_hide(g_TextMsg);
 			g_timeout_add (1400, imgOPHide, NULL);
-			window1.MySignal=1;
-		}else if(MyBatState()==0 && MyBatPrecMin(MyMin)){
+			window1.MySignal=true;
+		}else if(MyBatState()==false && MyBatPrecMin(MyMin)){ 
+		//if battery is discharged and battery under minimum percentage
 			gtk_label_set_markup (GTK_LABEL (g_TextMsg), 
 			"<span size=\"22000\">Subject:\n</span><span size=\"22000\" weight=\"bold\">Plug\nCharger\nNow!</span>");
 			gtk_widget_show_all(popup);
 			gtk_widget_hide(g_TextMsg);
 			g_timeout_add (1400, imgOPHide, NULL);
-			window1.MySignal=1;
-		}else if(MyBatState()==1){
+			window1.MySignal=true;
+		}else if(MyBatState()==true){ 
+		//battery in charging mode and running at normal percentage
 			//printf("Charging\n");
-		}else{
+		}else{ 
+		//battery is discharging and running at normal percentage
 			//printf("Discharging\n");
 		}
-	}else{
-		if(MyBatState()==0 && MyBatPercVal()<MyOff){
+	}else{ //if animation shown
+		if(MyBatState()==false && MyBatPercVal()<MyOff){
 			system("poweroff");
 		}else if(MyBatState() && MyBatPrecMax(MyMax)){
 			//printf("Unplug Charger Now!\n");
-		}else if(MyBatState()==0 && MyBatPrecMin(MyMin)){
+		}else if(MyBatState()==false && MyBatPrecMin(MyMin)){
 			//printf("Plug Charger Now!\n");
-		}else if(MyBatState()==1){
+		}else if(MyBatState()==true){
 			//printf("Charging\n");
+			myhide();
 		}else{
 			//printf("Discharging\n");
+			myhide();
 		}
 	}
 	return G_SOURCE_CONTINUE; /* or G_SOURCE_REMOVE when you want to stop */
