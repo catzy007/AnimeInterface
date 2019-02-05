@@ -37,9 +37,9 @@ int main(int argc, char *argv[]){
 	ContFixed = gtk_fixed_new();
 	ContBox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,0);
 	//initialize image and animation
-	imageOP = gtk_image_new_from_file("src1.gif");
+	imageOP = gtk_image_new_from_file("img/img1.gif");
 	imgOP = gtk_image_new_from_animation(gtk_image_get_animation(GTK_IMAGE(imageOP)));
-	image = gtk_image_new_from_file("src2.gif");
+	image = gtk_image_new_from_file("img/img2.gif");
 	img = gtk_image_new_from_animation(gtk_image_get_animation(GTK_IMAGE(image)));
 	//initialize text and set some text markup
 	g_TextMsg = gtk_label_new("");

@@ -25,6 +25,7 @@ OBJS2=mybatmax.o
 
 all: $(OBJS1) $(OBJS2)
 	$(LD) -o $(TARGET) $(OBJS1) $(OBJS2) $(LDFLAGS)
+	rm -f *.o
     
 main.o: src/main.c
 	$(CC) -c $(CCFLAGS) src/main.c $(GTKLIB) -o main.o
