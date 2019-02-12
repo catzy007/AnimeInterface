@@ -25,7 +25,7 @@ cmake --build . --target install
 cd <path to MyBattMax sources>/AnimeInterface
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DTd_DIR="~/tdlib" ..
+cmake -DCMAKE_BUILD_TYPE=Release -DTd_DIR="~/tdlib/lib/cmake/Td" ..
 cmake --build .
 ```
 * Aiface is under progress!
