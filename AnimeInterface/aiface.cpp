@@ -54,6 +54,13 @@ class AIface {
 
 		void aifacemain(char *parameter) {
 			int loop=0;
+			
+			if(parameter!=NULL && parameter[0]=='-' && parameter[1]=='l'){
+				std::cerr << "Logging out..." << std::endl;
+			}else if(parameter!=NULL && parameter[0]=='-' && parameter[1]=='c'){
+				std::cerr << "Loading chat list..." << std::endl;
+			}
+			
 			while (loop!=5) {
 				if (need_restart_) {
 					restart();
@@ -62,11 +69,9 @@ class AIface {
 				} else {
 					if(parameter!=NULL && parameter[0]=='-' && parameter[1]=='l'){
 					//if run with logout mode "aiface -l"
-						std::cerr << "Logging out..." << std::endl;
 						send_query(td_api::make_object<td_api::logOut>(), {});
 					}else if(parameter!=NULL && parameter[0]=='-' && parameter[1]=='c'){
 					//if run with load chat mode "aiface -c"
-						std::cerr << "Loading chat list..." << std::endl;
 						send_query(td_api::make_object<td_api::getChats>(std::numeric_limits<std::int64_t>::max(), 0, 20),
 						[this](Object object) {
 							if (object->get_id() == td_api::error::ID) {
@@ -92,6 +97,7 @@ class AIface {
 					sleep(1);
 				}
 			}
+			return;
 		}
 
 	private:
@@ -169,8 +175,9 @@ class AIface {
 					if (update_new_message.message_->content_->get_id() == td_api::messageText::ID) {
 					 text = static_cast<td_api::messageText &>(*update_new_message.message_->content_).text_->text_;
 					}
-					std::cerr << "Got message: [chat_id:" << chat_id << "] [from:" << sender_user_name << "] ["
-							 << text << "]" << std::endl;
+					//std::cerr << "Got message: [chat_id:" << chat_id << "] [from:" << sender_user_name << "] ["
+					//		 << text << "]" << std::endl;
+					std::cerr << "Message from " << sender_user_name << ": " << text << std::endl;
 				},
 				[](auto &update) {}));
 		}
@@ -190,7 +197,7 @@ class AIface {
 				overloaded(
 					[this](td_api::authorizationStateReady &) {
 						are_authorized_ = true;
-						std::cerr << "Got authorization" << std::endl;
+						//std::cerr << "Got authorization" << std::endl;
 					},
 					[this](td_api::authorizationStateLoggingOut &) {
 						are_authorized_ = false;
