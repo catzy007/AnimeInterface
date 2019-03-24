@@ -1,7 +1,9 @@
-### My Battery Max is simple program that tells you when you should unplug or plug your laptop charger :octocat:
-_this program need acpi to working properly_
+### AnimeInterface is simple program that display any information you want but with somewhat interactive :octocat:
+anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character "AI Chan" from anime "Sakurasou no Pet na Kanojo"
 
 #### to use MyBattMax
+My Battery Max is simple program that tells you when you should unplug or plug your laptop charger
+
 * install acpi and gtk3 `sudo apt install acpi gtk+-3.0 -y`
 * clone this repo
 * goto GUI directory
@@ -9,7 +11,7 @@ _this program need acpi to working properly_
 * add `mybatmax` to startup
 * and you're done!
 
-#### to use AnimeInterface
+#### to use Telegram Module
 * clone telegram library <https://github.com/tdlib/td>
 * install tdlib depedency <https://github.com/tdlib/td#dependencies>
 * compile telegram library _"assuming library will go to home `~/tdlib`"_
