@@ -7,7 +7,7 @@ anime interface is bunch of little module that display message trough you guess 
 * install tdlib depedency <https://github.com/tdlib/td#dependencies>
 * compile telegram library _"assuming library will go to home `~/tdlib`"_
 ```bash
-cd <path to TDLib sources>
+cd <path to TDLib sources (usually td)>
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH="~/tdlib" ..
@@ -15,7 +15,7 @@ cmake --build . --target install
 ```
 * then compile aiface
 ```bash
-cd <path to MyBattMax sources>/AnimeInterface
+cd <path to AnimeInterface sources>
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DTd_DIR="~/tdlib/lib/cmake/Td" ..
