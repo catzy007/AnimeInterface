@@ -1,5 +1,5 @@
 ### Anime Interface is simple program that display any information you want but with somewhat interactive :octocat:
-anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character "AI Chan" from anime "Sakurasou no Pet na Kanojo"
+anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character "Maid Chan" from anime "Sakurasou no Pet na Kanojo"
 
 #### to use Anime Interface
 * install acpi, gtk3 and libsdl2 `sudo apt install acpi gtk+-3.0 libsdl2-dev libsdl2-mixer-dev mpg123 -y`
