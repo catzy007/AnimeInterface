@@ -2,7 +2,7 @@
 anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character "AI Chan" from anime "Sakurasou no Pet na Kanojo"
 
 #### to use Anime Interface
-* install acpi and gtk3 `sudo apt install acpi gtk+-3.0 -y`
+* install acpi, gtk3 and libsdl2 `sudo apt install acpi gtk+-3.0 libsdl2-dev libsdl2-mixer-dev -y`
 * clone telegram library <https://github.com/tdlib/td>
 * install tdlib depedency <https://github.com/tdlib/td#dependencies>
 * compile telegram library _"assuming library will go to home `~/tdlib`"_
