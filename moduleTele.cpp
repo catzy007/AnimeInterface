@@ -17,6 +17,8 @@
 
 #include <unistd.h>
 
+int msgCount=0;
+
 namespace detail {
 	template <class... Fs>
 	struct overload;
@@ -97,6 +99,14 @@ class AIface {
 					sleep(1);
 				}
 			}
+
+			//MY ULTRA FANCY FUNCTION
+			if(msgCount > 0){
+				printf("AI:You Have|New|Message!\n",msgCount);
+			}else{
+				printf(" \n");
+			}
+
 			return;
 		}
 
@@ -177,7 +187,8 @@ class AIface {
 					}
 					//std::cerr << "Got message: [chat_id:" << chat_id << "] [from:" << sender_user_name << "] ["
 					//		 << text << "]" << std::endl;
-					std::cerr << "Message from " << sender_user_name << ": " << text << std::endl;
+					//std::cerr << "Message from " << sender_user_name << ": " << text << std::endl; //<----MESAGE OUTPUT IS DISABLED!!!---->
+					msgCount++; //SOME DUMMY VAR TO COUNT INCOMING MSG
 				},
 				[](auto &update) {}));
 		}
