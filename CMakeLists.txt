@@ -14,7 +14,7 @@ LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
 ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 
 # add executable
-add_executable(moduleCore moduleCore.c)
+add_executable(Aiface Aiface.c)
 add_executable(moduleBatmax moduleBatmax.c)
 add_executable(moduleAiface moduleAiface.c)
 add_executable(moduleTele moduleTele.cpp)
@@ -23,3 +23,8 @@ add_executable(moduleTele moduleTele.cpp)
 TARGET_LINK_LIBRARIES(moduleAiface ${GTK3_LIBRARIES})
 TARGET_LINK_LIBRARIES(moduleTele PRIVATE Td::TdStatic)
 set_property(TARGET moduleTele PROPERTY CXX_STANDARD 14)
+
+add_custom_target(img ALL
+	COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/img ${CMAKE_BINARY_DIR}/img
+	DEPENDS ${MY_TARGET}
+)

@@ -9,30 +9,30 @@
 //https://cryptii.com/pipes/text-octal
 
 #define MyMax 90 //change this to set maximum battery percentage. default = 90
-#define MyMin 40 //change this to set minimum battery percentage. default = 40
-#define MyOff 30 //change this to set shutdown battery percentage. default = 20
+#define MyMin 65 //change this to set minimum battery percentage. default = 40
+#define MyOff 20 //change this to set shutdown battery percentage. default = 20
 
 //some function
 int MyBatPrecMax(int max);
 int MyBatPrecMin(int min);
-boolean MyBatState();
+int MyBatState();
 
 //main function
 void main(){
 	if(MyBatState() && MyBatPrecMax(MyMax)){
 		//if laptop is charged and battery more than max
 		printf("AI:Unplug|Charger|Now!\n");
-	}else if(!MyBatState() && MyBatPrecMin(MyMin)){
+	}else if(MyBatState()==0 && MyBatPrecMin(MyMin)){
 		//if laptop is discharged and battery less than min
 		printf("AI:Plug|Charger|Now!\n");
-	}else if(!MyBatState() && MyBatPrecMin(MyOff)){
+	}else if(MyBatState()==0 && MyBatPrecMin(MyOff)){
 		//if laptop is disharged and battery less than off
 		system("poweroff");
 	}else if(MyBatState()){
-		//printf("Charging\n");
+		printf("Charging %d %d %d\n",MyMax,MyMin,MyOff);
 		printf(" \n");
 	}else{
-		//printf("Discharging\n");
+		printf("Discharging %d %d %d\n",MyMax,MyMin,MyOff);
 		printf(" \n");
 	}
 }
@@ -93,7 +93,7 @@ int MyBatPrecMin(int min){
 }
 
 //if battery state charging or discharging
-boolean MyBatState(void){
+int MyBatState(void){
 	FILE *fp2;
 	int i,mark=0;
 	char strstate[16];
@@ -116,7 +116,7 @@ boolean MyBatState(void){
 	}
 	//printf("%s %s %d %d\n",strstate,state,mark,sizeof(state)-1);
 	if(mark==sizeof(state)-1){
-		return false;
+		return 0;
 	}
-	return true;
+	return 1;
 }

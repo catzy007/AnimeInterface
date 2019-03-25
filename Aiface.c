@@ -17,6 +17,7 @@ void chopN(char *str, size_t n){
 	memmove(str, str+n, len-n+1);
 }
 
+//thanks to https://askubuntu.com/questions/157779/how-to-determine-whether-a-process-is-running-or-not-and-make-use-it-to-make-a-c
 boolean checkAiface(void){
 	FILE *check;
 	char message[10];
@@ -40,9 +41,10 @@ void msgFetcher(char *command){
 		printf("ERROR!");
 	}
 	pclose(check);
+	//printf("%s",message); //debug_line_can_be_removed
 	
 	if(message[0]=='A' && message[1]=='I' && message[2]==':'){
-		chopN(message,3);
+		chopN(message, 3);
 		strcpy(commd,"./moduleAiface -m \"");
 		strcat(commd,message);
 		strcat(commd,"\"");

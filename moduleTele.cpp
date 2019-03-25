@@ -101,8 +101,8 @@ class AIface {
 			}
 
 			//MY ULTRA FANCY FUNCTION
-			if(msgCount > 0){
-				printf("AI:You Have|New|Message!\n",msgCount);
+			if(msgCount > 2){
+				printf("AI:You Have|New|Message!\n");
 			}else{
 				printf(" \n");
 			}
