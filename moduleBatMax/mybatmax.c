@@ -3,6 +3,33 @@
 
 //https://cryptii.com/pipes/text-octal
 
+#define MyMin 40 //change this to set minimum battery percentage. default = 40
+#define MyMax 90 //change this to set maximum battery percentage. default = 90
+#define MyOff 30 //change this to set shutdown battery percentage. default = 20
+
+//some function
+int MyBatPrecMax(int max);
+int MyBatPrecMin(int min);
+int MyBatState();
+
+//main function
+void main(){
+	while(1){
+		if(MyBatState() && MyBatPrecMax(MyMax)){
+			printf("Unplug Charger Now!\n");
+		}else if(MyBatState()==0 && MyBatPrecMin(MyMin)){
+			printf("Plug Charger Now!\n");
+		}else if(MyBatState()==1){
+			//printf("Charging\n");
+			printf(" \n");
+		}else{
+			//printf("Discharging\n");
+			printf(" \n");
+		}
+		system("sleep 2");
+	}
+}
+
 //if battery percentage more than equ max
 int MyBatPrecMax(int max){
 	FILE *fp1;
@@ -85,19 +112,4 @@ int MyBatState(){
 		return 0;
 	}
 	return 1;
-}
-
-void main(){
-	while(1){
-		if(MyBatState() && MyBatPrecMax(85)){
-			printf("Unplug Charger Now!\n");
-		}else if(MyBatState()==0 && MyBatPrecMin(15)){
-			printf("Plug Charger Now!\n");
-		}else if(MyBatState()==1){
-			printf("Charging\n");
-		}else{
-			printf("Discharging\n");
-		}
-		system("sleep 2");
-	}
 }
