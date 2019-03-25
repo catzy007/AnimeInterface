@@ -1,17 +1,8 @@
-### AnimeInterface is simple program that display any information you want but with somewhat interactive :octocat:
+### Anime Interface is simple program that display any information you want but with somewhat interactive :octocat:
 anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character "AI Chan" from anime "Sakurasou no Pet na Kanojo"
 
-#### to use MyBattMax
-My Battery Max is simple program that tells you when you should unplug or plug your laptop charger
-
+#### to use Anime Interface
 * install acpi and gtk3 `sudo apt install acpi gtk+-3.0 -y`
-* clone this repo
-* goto GUI directory
-* `make`
-* add `mybatmax` to startup
-* and you're done!
-
-#### to use Telegram Module
 * clone telegram library <https://github.com/tdlib/td>
 * install tdlib depedency <https://github.com/tdlib/td#dependencies>
 * compile telegram library _"assuming library will go to home `~/tdlib`"_
@@ -30,7 +21,8 @@ cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DTd_DIR="~/tdlib/lib/cmake/Td" ..
 cmake --build .
 ```
-* Aiface is under progress!
+* add `aiface` to startup
+* and you're done!
 
 _some image copyright goes to the respective owner_
 
