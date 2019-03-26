@@ -21,7 +21,7 @@ cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DTd_DIR="~/tdlib/lib/cmake/Td" ..
 cmake --build .
 ```
-* add `aiface` to startup
+* add `aiface` to startup <https://github.com/catzy007/AnimeInterface/wiki/Add-Aiface-to-startup>
 * and you're done!
 
 _some image copyright goes to the respective owner_
