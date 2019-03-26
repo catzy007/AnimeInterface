@@ -18,6 +18,7 @@ add_executable(Aiface Aiface.c)
 add_executable(moduleBatmax moduleBatmax.c)
 add_executable(moduleAiface moduleAiface.c)
 add_executable(moduleTele moduleTele.cpp)
+add_executable(moduleMp3 moduleMp3.c)
 
 # link library and set property
 TARGET_LINK_LIBRARIES(moduleAiface ${GTK3_LIBRARIES})
@@ -26,5 +27,9 @@ set_property(TARGET moduleTele PROPERTY CXX_STANDARD 14)
 
 add_custom_target(img ALL
 	COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/img ${CMAKE_BINARY_DIR}/img
+	DEPENDS ${MY_TARGET}
+)
+add_custom_target(mp3 ALL
+	COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/mp3 ${CMAKE_BINARY_DIR}/mp3
 	DEPENDS ${MY_TARGET}
 )

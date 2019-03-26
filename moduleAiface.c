@@ -31,27 +31,27 @@ void myhide();
 static gboolean imgOPHide();
 
 int main(int argc, char *argv[]){
-//initialize gtk    
+//initialize gtk
     gtk_init(&argc, &argv);
 
 //initialize input parameter
     char dispText[255], usrText[50]; int i;
     strcpy(usrText,"NULL!");
-    
+
     //input parameter section
 	for(i=0; i<argc; i++){
 		if(argv[i][0]=='-' && argv[i][1]=='m'){
-			strcpy(usrText,argv[i+1]);	
+			strcpy(usrText,argv[i+1]);
 		}
 	}
-	
+
 //clean usertext input
-	for(i=0; i<sizeof(usrText)/sizeof(char); i++){	
-		if(usrText[i]=='\174'){ 
+	for(i=0; i<sizeof(usrText)/sizeof(char); i++){
+		if(usrText[i]=='\174'){
 			usrText[i]='\n';
 		}
 	}
-    
+
 //initialize some widget
 	//initialize main window
 	popup = gtk_window_new(GTK_WINDOW_TOPLEVEL);
@@ -75,8 +75,8 @@ int main(int argc, char *argv[]){
 //set additional parameter for main window and size request
 	gtk_window_set_type_hint(GTK_WINDOW(popup),GDK_WINDOW_TYPE_HINT_DOCK);
 	gtk_window_set_position(GTK_WINDOW(popup),GTK_WIN_POS_CENTER);
-	gtk_widget_set_size_request(ContBox, MyWidth, MyHeight);  
-	
+	gtk_widget_set_size_request(ContBox, MyWidth, MyHeight);
+
 //filling main window, container, content, etc
 	gtk_container_add(GTK_CONTAINER(popup), ContFixed);
 	gtk_fixed_put (GTK_FIXED(ContFixed), IsAnimation?img:image, 0, 0);
@@ -90,18 +90,18 @@ int main(int argc, char *argv[]){
 	gtk_label_set_yalign(GTK_LABEL(g_TextMsg),0.6);
 	//gtk_box_pack_start(GTK_BOX(ContBox), g_TextSbj, 1, 1, 0);
 	gtk_box_pack_start(GTK_BOX(ContBox), g_TextMsg, 1, 1, 0);
-	
+
 //calling function with 2000ms delay
-    g_timeout_add (2000, MyFunction, popup);
-   
+	g_timeout_add (100, MyFunction, popup);
+
 //some signal connect
 	//if user press the image, call myhide();
-    g_signal_connect(popup, "button_press_event", G_CALLBACK(gtk_main_quit), NULL);
-    //signal for safer quit
-    g_signal_connect(popup, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-    
-    gtk_main();
-    return 0;
+	g_signal_connect(popup, "button_press_event", G_CALLBACK(gtk_main_quit), NULL);
+	//signal for safer quit
+	g_signal_connect(popup, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+	gtk_main();
+	return 0;
 }
 
 //Hide main window if called

@@ -21,7 +21,7 @@ void chopN(char *str, size_t n){
 boolean checkAiface(void){
 	FILE *check;
 	char message[10];
-	
+
 	check=popen("pgrep -x \"moduleAiface\"", "r");
 	if(fgets(message, sizeof(message), check)!=NULL){
 		pclose(check);
@@ -35,19 +35,19 @@ void msgFetcher(char *command){
 	FILE *check;
 	char message[255], commd[255];
 	int i=0;
-	
+
 	check=popen(command,"r");
 	if(fgets(message, sizeof(message), check)==NULL){
 		printf("ERROR!");
 	}
 	pclose(check);
 	//printf("%s",message); //debug_line_can_be_removed
-	
+
 	if(message[0]=='A' && message[1]=='I' && message[2]==':'){
 		chopN(message, 3);
 		strcpy(commd,"./moduleAiface -m \"");
 		strcat(commd,message);
-		strcat(commd,"\"");
+		strcat(commd,"\" & sleep 2 && ./moduleMp3 mp3/message.mp3");
 		if(!checkAiface()){
 			system(commd);
 		}
