@@ -2,9 +2,9 @@
 anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character "Maid Chan" from anime "Sakurasou no Pet na Kanojo"
 
 #### to use Anime Interface
-* install acpi, gtk3 and libsdl2 `sudo apt install acpi gtk+-3.0 libsdl2-dev libsdl2-mixer-dev mpg123 -y`
-* clone telegram library <https://github.com/tdlib/td>
+* install acpi, gtk3 and mplayer `sudo apt install acpi gtk+-3.0 mplayer -y`
 * install tdlib depedency <https://github.com/tdlib/td#dependencies>
+* clone telegram library <https://github.com/tdlib/td>
 * compile telegram library _"assuming library will go to home `~/tdlib`"_
 ```bash
 cd <path to TDLib sources (usually td)>
