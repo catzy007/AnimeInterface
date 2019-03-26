@@ -26,6 +26,7 @@ GtkWidget *ContFixed;
 GtkWidget *ContBox;
 
 //some function
+static gboolean MyKiller(gpointer user_data);
 static gboolean MyFunction (gpointer user_data);
 void myhide();
 static gboolean imgOPHide();
@@ -91,7 +92,7 @@ int main(int argc, char *argv[]){
 	//gtk_box_pack_start(GTK_BOX(ContBox), g_TextSbj, 1, 1, 0);
 	gtk_box_pack_start(GTK_BOX(ContBox), g_TextMsg, 1, 1, 0);
 
-//calling function with 2000ms delay
+//calling function with 100ms delay
 	g_timeout_add (100, MyFunction, popup);
 
 //some signal connect
@@ -99,9 +100,16 @@ int main(int argc, char *argv[]){
 	g_signal_connect(popup, "button_press_event", G_CALLBACK(gtk_main_quit), NULL);
 	//signal for safer quit
 	g_signal_connect(popup, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+	//wait for 10s before kill main widget
+	g_timeout_add(10000, MyKiller, popup);
 
 	gtk_main();
 	return 0;
+}
+
+//main window killer
+static gboolean MyKiller(gpointer user_data){
+	gtk_widget_destroy(popup);
 }
 
 //Hide main window if called
