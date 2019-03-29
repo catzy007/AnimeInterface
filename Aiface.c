@@ -13,7 +13,7 @@ void chopN(char *str, size_t n){
 	size_t len=strlen(str);
 	if(n>len){
 		return;  // Or: n = len;
-    }
+	}
 	memmove(str, str+n, len-n+1);
 }
 
@@ -58,6 +58,6 @@ void main(){
 	while(1){
 		msgFetcher("./moduleBatmax");
 		msgFetcher("./moduleTele");
-		sleep(2);
+		sleep(10);
 	}
 }
