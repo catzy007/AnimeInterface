@@ -17,20 +17,6 @@ void chopN(char *str, size_t n){
 	memmove(str, str+n, len-n+1);
 }
 
-//thanks to https://askubuntu.com/questions/157779/how-to-determine-whether-a-process-is-running-or-not-and-make-use-it-to-make-a-c
-boolean checkAiface(void){
-	FILE *check;
-	char message[10];
-
-	check=popen("pgrep -x \"moduleAiface\"", "r");
-	if(fgets(message, sizeof(message), check)!=NULL){
-		pclose(check);
-		return true;
-	}
-	pclose(check);
-	return false;
-}
-
 void msgFetcher(char *command){
 	FILE *check;
 	char message[255], commd[255];
@@ -48,16 +34,15 @@ void msgFetcher(char *command){
 		strcpy(commd,"./moduleAiface -m \"");
 		strcat(commd,message);
 		strcat(commd,"\" & sleep 2 && ./moduleMp3 mp3/message.mp3");
-		if(!checkAiface()){
-			system(commd);
-		}
+		system(commd);
 	}
+
 }
 
 void main(){
 	while(1){
 		msgFetcher("./moduleBatmax");
 		msgFetcher("./moduleTele");
-		sleep(10);
+		sleep(2);
 	}
 }

@@ -102,7 +102,7 @@ class AIface {
 
 			//MY ULTRA FANCY FUNCTION
 			if(msgCount > 2){
-				printf("AI:You Have|New|Message!\n");
+				printf("AI:You got a|Telegram|Message!\n");
 			}else{
 				printf(" \n");
 			}

@@ -9,7 +9,7 @@
 //https://cryptii.com/pipes/text-octal
 
 #define MyMax 90 //change this to set maximum battery percentage. default = 90
-#define MyMin 40 //change this to set minimum battery percentage. default = 40
+#define MyMin 50 //change this to set minimum battery percentage. default = 40
 #define MyOff 30 //change this to set shutdown battery percentage. default = 20
 
 //some function
