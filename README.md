@@ -1,4 +1,7 @@
 ### Anime Interface is simple program that display any information you want but with somewhat interactive :octocat:
+<p align="center">
+	<img src="https://github.com/catzy007/AnimeInterface/raw/master/preview/imgss1.png" width="500px" height="auto">
+</p>
 Anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character [Maid Chan](https://sakurasounopetnakanojo.fandom.com/wiki/Maid) from anime [Sakurasou no Pet na Kanojo](https://myanimelist.net/anime/13759/Sakurasou_no_Pet_na_Kanojo)
 
 #### Why AnimeInterface?
