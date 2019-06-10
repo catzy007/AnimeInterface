@@ -1,8 +1,11 @@
 ### Anime Interface is simple program that display any information you want but with somewhat interactive :octocat:
-anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character "Maid Chan" from anime "Sakurasou no Pet na Kanojo"
+Anime interface is bunch of little module that display message trough you guess it "anime interface" this program feature character [Maid Chan](https://sakurasounopetnakanojo.fandom.com/wiki/Maid) from anime [Sakurasou no Pet na Kanojo](https://myanimelist.net/anime/13759/Sakurasou_no_Pet_na_Kanojo)
 
-#### to use Anime Interface
-* install acpi, gtk3 and mplayer `sudo apt install acpi gtk+-3.0 mplayer -y`
+#### Why AnimeInterface?
+I used to have lenovo laptop that has built-in battery and power management so my battery will last even i plug it in wall everyday. Now i have Acer laptop that has no such feature and my battery went to 57% health in les than 6 months. Then i realize most cheap laptop dont have such feature that lenovo laptop has, so i this program was made. I add GUI and expand some feature and this is the AnimeInterface now.
+
+#### To use Anime Interface
+* install acpi, gtk3, xterm and mplayer `sudo apt install acpi gtk+-3.0 xterm mplayer -y`
 * install tdlib depedency <https://github.com/tdlib/td#dependencies>
 * clone telegram library <https://github.com/tdlib/td>
 * compile telegram library _"assuming library will go to home `~/tdlib`"_

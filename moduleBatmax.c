@@ -15,7 +15,7 @@
 
 //batmax function ======================================================
 int getBattPerc(void); //this function will return current battery percentage
-boolean getStatusCharge(void); //this fucntion will return true if battery is charged
+boolean getStatusCharge(void); //this function will return true if battery is charged
 
 //main function ========================================================
 void main(){
@@ -25,7 +25,7 @@ void main(){
 	if(getStatusCharge() == false && getBattPerc() <= MyOff){
 		do{
 			sleep(1);
-			status = system("xterm -e poweroff");
+			status = system("xterm -T Aiface -e \"echo Powering Off && sleep 5 && poweroff\"");
 		}while(status != 0);
 //if laptop is discharged and battery less than MyMin ------------------
 	}else if(getStatusCharge() == false && getBattPerc() <= MyMin){

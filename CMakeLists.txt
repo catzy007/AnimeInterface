@@ -15,6 +15,7 @@ ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 
 # add executable
 add_executable(Aiface Aiface.c)
+add_executable(moduleLauncher moduleLauncher.c)
 add_executable(moduleBatmax moduleBatmax.c)
 add_executable(moduleAiface moduleAiface.c)
 add_executable(moduleTele moduleTele.cpp)
