@@ -33,4 +33,5 @@ cmake --build .
 
 _some image copyright goes to the respective owner_
 
-_personal use only!_
+_personal and commercial use!_
+_for commercial use, change the background first!_
