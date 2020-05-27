@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/moduleAdhan.dir/moduleAdhan.c.o  -o moduleAdhan  -ljson-c -ljson-c 

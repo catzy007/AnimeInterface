@@ -1,0 +1,3 @@
+/home/catzy/Public/AnimeInterface/test/CMakeFiles/rebuild_cache.dir
+/home/catzy/Public/AnimeInterface/test/CMakeFiles/edit_cache.dir
+/home/catzy/Public/AnimeInterface/test/CMakeFiles/moduleAdhan.dir
