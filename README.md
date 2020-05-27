@@ -9,7 +9,7 @@ Anime interface is bunch of little module that display message trough you guess 
 I used to have lenovo laptop that has built-in battery and power management so my battery will last even i plug it in wall everyday. Now i have Acer laptop that has no such feature and my battery went to 57% health in less than 6 months. Then i realize most cheap laptop dont have such feature that lenovo laptop has, so i this program was made. I add GUI and expand some feature and this is the AnimeInterface now.
 
 #### To use Anime Interface
-* install acpi, libgtk3, libjson-c pkg-config, cmake, xterm and mplayer `sudo apt install acpi libgtk-3-dev libjson-c-dev pkg-config cmake xterm mplayer -y`
+* install acpi, cmake, libgtk3, libjson-c pkg-config, cmake, xterm and mplayer `sudo apt install acpi cmake libgtk-3-dev libjson-c-dev pkg-config cmake xterm mplayer -y`
 * install tdlib depedency <https://github.com/tdlib/td#dependencies>
 * clone telegram library <https://github.com/tdlib/td>
 * compile telegram library _"assuming library will go to home `~/tdlib`"_

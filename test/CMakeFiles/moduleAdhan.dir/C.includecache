@@ -13,6 +13,8 @@ stdio.h
 -
 time.h
 -
+string.h
+-
 
 /usr/local/include/json-c/arraylist.h
 stddef.h
