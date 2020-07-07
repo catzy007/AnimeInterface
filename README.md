@@ -11,7 +11,7 @@ I used to have lenovo laptop that has built-in battery and power management so m
 #### To use Anime Interface
 * install acpi, cmake, libgtk3, libjson-c pkg-config, cmake, xterm and mplayer `sudo apt install acpi cmake libgtk-3-dev libjson-c-dev pkg-config cmake xterm mplayer -y`
 * install tdlib depedency <https://github.com/tdlib/td#dependencies>
-* clone telegram library <https://github.com/tdlib/td>
+* download and extract telegram library <https://github.com/tdlib/td/releases/tag/v1.3.0>
 * compile telegram library _"assuming library will go to home `~/tdlib`"_
 ```bash
 cd <path to TDLib sources (usually td)>
